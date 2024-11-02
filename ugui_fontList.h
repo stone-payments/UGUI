@@ -1,3 +1,6 @@
+#ifndef __UGUI_FONTLIST_H
+#define __UGUI_FONTLIST_H
+
 #ifdef USE_FONT_4X6
 extern const UG_FONT FONT_4X6;
 #endif
@@ -46,3 +49,5 @@ extern const UG_FONT FONT_24X40;
 #ifdef USE_FONT_32X53
 extern const UG_FONT FONT_32X53;
 #endif
+
+#endif //__UGUI_FONTLIST_H
