@@ -135,8 +135,6 @@ typedef struct
     UG_U8* widths;
 } UG_FONT;
 
-#include "ugui_fontList.h"
-
 typedef UG_U8 UG_RESULT;
 
 /* --------------------------------------------------------------------------------

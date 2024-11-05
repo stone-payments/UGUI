@@ -57,7 +57,6 @@
 /* --------------------------------------------------------------------------------
  */
 #include "ugui_rgb565.h"
-#include "ugui_fontMapper.h"
 
 /* Static functions */
 static UG_RESULT

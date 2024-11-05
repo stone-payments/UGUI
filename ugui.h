@@ -2,6 +2,8 @@
 #define __UGUI_H
 
 #include "ugui_config.h"
+#include "ugui_fontList.h"
+#include "ugui_fontMapper.h"
 #include "ugui_rgb565.h"
 #include "ugui_rgb888.h"
 
