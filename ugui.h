@@ -21,10 +21,14 @@ typedef enum
     UGUI_COLOR_BLACK,
 } UGUI_COLOR;
 
+void
+UG_SetColorDepth(UGUI_COLOR_DEPTH colordepth);
+
 void*
-UG_PreInit(UGUI_COLOR_DEPTH colordepth,
-           UG_GUI_16* framebuffer_16,
-           UG_GUI_32* framebuffer_32);
+UG_InitFramebuffer(UG_GUI_16* framebuffer_16, UG_GUI_32* framebuffer_32);
+
+void*
+UG_GetFramebuffer();
 
 UG_S16
 UG_Init(void* g, void (*p)(UG_S16, UG_S16, unsigned int), UG_S16 x, UG_S16 y);

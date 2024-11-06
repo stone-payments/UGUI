@@ -4,13 +4,16 @@ static UGUI_COLOR_DEPTH ugui_colordepth;
 static UG_GUI_16* fb_16;
 static UG_GUI_32* fb_32;
 
-void*
-UG_PreInit(UGUI_COLOR_DEPTH colordepth,
-           UG_GUI_16* framebuffer_16,
-           UG_GUI_32* framebuffer_32)
+void
+UG_SetColorDepth(UGUI_COLOR_DEPTH colordepth)
 {
     ugui_colordepth = colordepth;
-    if (colordepth == UGUI_COLOR_DEPTH_RGB_565) {
+}
+
+void*
+UG_InitFramebuffer(UG_GUI_16* framebuffer_16, UG_GUI_32* framebuffer_32)
+{
+    if (ugui_colordepth == UGUI_COLOR_DEPTH_RGB_565) {
         fb_16 = framebuffer_16;
         return framebuffer_16;
     } else {
@@ -19,13 +22,24 @@ UG_PreInit(UGUI_COLOR_DEPTH colordepth,
     }
 }
 
+void*
+UG_GetFramebuffer()
+{
+    if (ugui_colordepth == UGUI_COLOR_DEPTH_RGB_565)
+        return fb_16;
+    else
+        return fb_32;
+}
+
 UG_S16
 UG_Init(void* g, void (*p)(UG_S16, UG_S16, unsigned int), UG_S16 x, UG_S16 y)
 {
     if (ugui_colordepth == UGUI_COLOR_DEPTH_RGB_565)
-        return UG_16_Init(g, (void (*)(UG_S16, UG_S16, UG_COLOR_16))p, x, y);
+        return UG_16_Init(
+          (UG_GUI_16*)g, (void (*)(UG_S16, UG_S16, UG_COLOR_16))p, x, y);
     else
-        return UG_32_Init(g, (void (*)(UG_S16, UG_S16, UG_COLOR_32))p, x, y);
+        return UG_32_Init(
+          (UG_GUI_32*)g, (void (*)(UG_S16, UG_S16, UG_COLOR_32))p, x, y);
 }
 
 void

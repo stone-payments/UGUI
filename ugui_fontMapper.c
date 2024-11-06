@@ -1,5 +1,5 @@
-#include "ugui_config.h"
 #include "ugui_fontMapper.h"
+#include "ugui_config.h"
 
 #ifdef USE_FONT_4X6
 #include "fonts/FONT_4x6.h"
