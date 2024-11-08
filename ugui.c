@@ -238,3 +238,12 @@ UG_ConsoleGetCursorPos(UG_S16* x, UG_S16* y)
     else
         UG_32_ConsoleGetCursorPos(x, y);
 }
+
+void
+UG_Update(void)
+{
+    if (ugui_colordepth == UGUI_COLOR_DEPTH_RGB_565)
+        UG_16_Update();
+    else
+        UG_32_Update();
+}

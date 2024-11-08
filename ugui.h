@@ -90,4 +90,7 @@ UG_GetColor(UGUI_COLOR color);
 void
 UG_ConsoleGetCursorPos(UG_S16* x, UG_S16* y);
 
+void
+UG_Update(void);
+
 #endif
